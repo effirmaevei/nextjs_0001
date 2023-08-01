@@ -79,7 +79,7 @@ export default function Home() {
       <img alt="Zelda" className="trinketDragon" src="dragon.png" />
 
       <div>
-        <audio ref={audioRef} src="/bgm.mp3" loop />
+        <audio ref={audioRef} src="bgm.mp3" loop />
       </div>
     </main>
   );

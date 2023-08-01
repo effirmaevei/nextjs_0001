@@ -1,0 +1,32 @@
+.trinketZelda {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  top: 4%;
+  right: 0;
+  margin-right: 5vw;
+  opacity: 0.8;
+  filter: brightness(0.78);
+  z-index: 10;
+  filter: drop-shadow(0 0 0.25rem rgba(210, 186, 180, 0.5));
+  transition: 200ms filter linear;
+}
+
+.trinketZelda:hover,
+.trinketDragon:hover {
+  filter: drop-shadow(0 0 0.75rem rgb(255, 50, 0));
+}
+
+.trinketDragon {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  top: 4%;
+  left: 0;
+  margin-left: 5vw;
+  opacity: 0.8;
+  filter: brightness(0.78);
+  z-index: 10;
+  filter: drop-shadow(0 0 0.25rem rgba(210, 186, 180, 0.5));
+  transition: 200ms filter linear;
+}

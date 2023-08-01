@@ -10,14 +10,14 @@ export default function ParallaxImage() {
   useEffect(() => {
     const myAtropos = Atropos({
       el: ".my-atropos",
-      // activeOffset: -150,
+      activeOffset: 10,
       //   shadowScale: 1.05,
       shadow: false,
       rotate: true,
       highlight: false,
       duration: 300,
-      rotateXMax: 3,
-      rotateYMax: 3,
+      rotateXMax: 2,
+      rotateYMax: 2,
       // onEnter() {
       //   // console.log("enter");
       // },
@@ -39,19 +39,21 @@ export default function ParallaxImage() {
       <div
         className="atropos my-atropos"
         // style={{ width: "100vw", height: "100vh", zIndex: 2 }}
-        style={{ zIndex: 2 }}
+        // style={{ zIndex: 2 }}
       >
         <div className="atropos-scale">
           <div className="atropos-rotate">
             <div className="atropos-inner">
               <div className="atropos-content-container">
                 <img
-                  src="enviro.png"
-                  data-atropos-offset="5"
+                  src="enviro.webp"
+                  data-atropos-offset="2"
                   style={{
-                    width: "100%",
-                    height: "100%",
-                    "object-fit": "cover",
+                    width: "90vw",
+                    height: "auto",
+                    // minHeight: "70%",
+                    objectFit: "none",
+                    // objectFit: "cover",
                     // transform: "scale(0.5)",
                   }}
                   // height="100vh"

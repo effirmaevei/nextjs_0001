@@ -9,6 +9,11 @@ import Head from "next/head";
 import ParallaxImage from "./parallax-image";
 // import AStyles from "../styles/atropos.module.scss";
 import "../styles/atro.css";
+import "../styles/trinkets.css";
+
+// const imageLoader = ({ src, width, quality }) => {
+//   return `https://example.com/${src}?w=${width}&q=${quality || 75}`;
+// };
 
 export default function Home() {
   const audioRef = useRef<HTMLAudioElement>(null);
@@ -47,26 +52,35 @@ export default function Home() {
           rel="stylesheet"
         ></link>
       </Head>
-      {/* <button
-        className="fixed top-4 left-4 p-2 bg-black rounded-full text-white"
+
+      <button
+        className="z-10 fixed top-4 left-4 p-2 bg-black rounded-full text-white"
         onClick={handleMuteClick}
       >
         <FontAwesomeIcon icon={isMuted ? faVolumeMute : faVolumeUp} size="lg" />
       </button>
-      <div className={Styles.banner}>
+      {/* <div className={Styles.banner}>
         <h1>A place to reminisce ...</h1>
       </div> */}
 
-      {/* <div className={`${Styles.mainContainer} ${Styles.imgRoundedXl}`}>
-        <ParallaxImage />
-      </div> */}
       <div className={`mainContainer ${Styles.imgRoundedXl}`}>
         <ParallaxImage />
       </div>
       {/* 
+      <Image
+        width={200}
+        height={200}
+        alt="Zelda"
+        className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
+        src="../public/zelda.png"
+        priority
+      /> */}
+      <img alt="Zelda" class="trinketZelda" src="zelda.png" />
+      <img alt="Zelda" class="trinketDragon" src="dragon.png" />
+
       <div>
         <audio ref={audioRef} src="/bgm.mp3" loop />
-      </div> */}
+      </div>
     </main>
   );
 }

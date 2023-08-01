@@ -6,7 +6,6 @@
 // $containerIllustrationHeight: 606px;
 // $gapHeight: (-1 * (($containerIllustrationHeight - $containerHeight)/ 2)) + 45;
 
-
 // .mainContainer {
 //     margin: 0;
 //     padding: 0;
@@ -14,7 +13,7 @@
 //     justify-content: center;
 //     align-items: center;
 //     height: 80%;
-//     // background-image: url("../public/enviro.png");
+//     // background-image: url("../public/enviro.webp");
 //     background-size: $containerIllustrationWidth $containerIllustrationHeight;
 //     background-repeat: no-repeat;
 //     background-position: center center;
@@ -26,17 +25,17 @@
 //       align-items: center;
 //       margin-top: -100px;
 //       border-radius: 10px;
-      // .atropos-content-container {
-      //   height: 100%;
-      //   position: relative;
-      //   [data-atropos-offset] {
-      //     position: absolute;
-      //     width: $containerIllustrationWidth;
-      //     height: $containerIllustrationHeight;
-      //     height: 606px;
-      //     left: $gapWidth;
-      //     top: $gapHeight;
-      //   }
-      // }
+// .atropos-content-container {
+//   height: 100%;
+//   position: relative;
+//   [data-atropos-offset] {
+//     position: absolute;
+//     width: $containerIllustrationWidth;
+//     height: $containerIllustrationHeight;
+//     height: 606px;
+//     left: $gapWidth;
+//     top: $gapHeight;
+//   }
+// }
 //     }
 //   }

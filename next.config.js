@@ -5,6 +5,7 @@ nextConfig = {
     loader: "custom",
     path: "",
   },
+  distDir: "dist",
 
   async headers() {
     return [

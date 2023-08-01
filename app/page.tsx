@@ -75,8 +75,8 @@ export default function Home() {
         src="../public/zelda.png"
         priority
       /> */}
-      <img alt="Zelda" class="trinketZelda" src="zelda.png" />
-      <img alt="Zelda" class="trinketDragon" src="dragon.png" />
+      <img alt="Zelda" className="trinketZelda" src="zelda.png" />
+      <img alt="Zelda" className="trinketDragon" src="dragon.png" />
 
       <div>
         <audio ref={audioRef} src="/bgm.mp3" loop />

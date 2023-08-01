@@ -1,25 +1,36 @@
 /** @type {import('next').NextConfig} */
 
-nextConfig = {
-  images: {
-    loader: "custom",
-    path: "",
-  },
-  distDir: "dist",
+const isGithubActions = process.env.GITHUB_ACTIONS || false;
 
-  async headers() {
-    return [
-      {
-        source: "/:path*.(png|jpg|jpeg|gif|webp)",
-        headers: [
-          {
-            key: "Cache-Control",
-            value: "public, max-age=31536000, immutable",
-          },
-        ],
-      },
-    ];
-  },
-};
+let assetPrefix = "";
+let basePath = "/";
+
+if (isGithubActions) {
+  const repo = process.env.GITHUB_REPOSITORY.replace(/.*?\//, "");
+
+  assetPrefix = `/${repo}/`;
+  basePath = `/${repo}`;
+
+  nextConfig = {
+    output: "export",
+    assetPrefix: assetPrefix,
+    basePath: basePath,
+    images: {
+      loader: "custom",
+      path: "",
+    },
+  };
+} else {
+  nextConfig = {
+    output: "export",
+    images: {
+      loader: "custom",
+      path: "",
+    },
+    // distDir: "dist",
+    // assetPrefix: ".",
+    // basePath: basePath,
+  };
+}
 
 module.exports = nextConfig;

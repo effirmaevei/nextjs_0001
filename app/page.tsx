@@ -7,6 +7,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faVolumeUp, faVolumeMute } from "@fortawesome/free-solid-svg-icons";
 import Head from "next/head";
 import ParallaxImage from "./parallax-image";
+// import AStyles from "../styles/atropos.module.scss";
+import "../styles/atro.css";
 
 export default function Home() {
   const audioRef = useRef<HTMLAudioElement>(null);
@@ -37,14 +39,15 @@ export default function Home() {
   };
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    // <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="flex">
       <Head>
         <link
           href="https://fonts.googleapis.com/css2?family=Laila:wght@500;600&display=swap"
           rel="stylesheet"
         ></link>
       </Head>
-      <button
+      {/* <button
         className="fixed top-4 left-4 p-2 bg-black rounded-full text-white"
         onClick={handleMuteClick}
       >
@@ -52,26 +55,18 @@ export default function Home() {
       </button>
       <div className={Styles.banner}>
         <h1>A place to reminisce ...</h1>
-      </div>
-
-      {/* <div className={`relative rounded-xl  ${Styles.imgBlurredEdge}`}>
-        <Image
-          src="/enviro.png"
-          alt="environment"
-          className={`w-full h-full object-cover`}
-          width={768 * 1.5}
-          height={512 * 1.5}
-          priority
-        />
       </div> */}
 
-      <div className={`main-container ${Styles.imgRoundedXl}`}>
+      {/* <div className={`${Styles.mainContainer} ${Styles.imgRoundedXl}`}>
+        <ParallaxImage />
+      </div> */}
+      <div className={`mainContainer ${Styles.imgRoundedXl}`}>
         <ParallaxImage />
       </div>
-
+      {/* 
       <div>
         <audio ref={audioRef} src="/bgm.mp3" loop />
-      </div>
+      </div> */}
     </main>
   );
 }

@@ -1,0 +1,32 @@
+.mainContainer {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mainContainer .my-atropos {
+  width: 95%;
+  height: 95%;
+  display: flex;
+}
+
+.mainContainer .atropos-inner {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}
+
+/* .atropos-content-container {
+  height: 100%;
+  position: relative;
+  [data-atropos-offset] {
+    position: absolute;
+  }
+} */
+
+/* .mainContainer .atropos-inner {
+    width: 90%;
+    height: 90%;
+  } */

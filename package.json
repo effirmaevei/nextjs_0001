@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "export": "next export"
+    "export": "next export",
+    "serve": "http-server ./out -p 3000"
   },
   "dependencies": {
     "@fortawesome/free-solid-svg-icons": "^6.4.0",

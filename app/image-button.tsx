@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 
 interface ImageButtonProps {
@@ -6,6 +6,40 @@ interface ImageButtonProps {
   className: string;
   src: string;
   toastId: React.MutableRefObject<any>;
+}
+
+// React Hook
+function useWindowSize() {
+  // Derived from https://github.com/uidotdev/usehooks/blob/main/index.js
+  const [windowSize, setWindowSize] = useState<{
+    width: number | undefined;
+    height: number | undefined;
+  }>({
+    width: undefined,
+    height: undefined,
+  });
+
+  useEffect(() => {
+    // only execute all the code below in client side
+    // Handler to call on window resize
+    function handleResize() {
+      // Set window width/height to state
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    }
+
+    // Add event listener
+    window.addEventListener("resize", handleResize);
+
+    // Call handler right away so state gets updated with initial window size
+    handleResize();
+
+    // Remove event listener on cleanup
+    return () => window.removeEventListener("resize", handleResize);
+  }, []); // Empty array ensures that effect is only run on mount
+  return windowSize;
 }
 
 const ImageButton = ({ alt, className, src, toastId }: ImageButtonProps) => {
@@ -34,27 +68,17 @@ const ImageButton = ({ alt, className, src, toastId }: ImageButtonProps) => {
     );
   }
 
+  const windowSize = useWindowSize();
+  let isMobile = () => windowSize.width! < 800;
+
   const notify = () => {
-    console.log(alt);
-    console.log(className);
-    console.log(src);
-    console.log(toastId);
     // if (!toast.isActive(toastId.current)) {
-
-    let customStyle;
-    if (char == "A") {
-      customStyle = {
-        width: "500px",
-      };
-    } else {
-      customStyle = {
-        marginLeft: "-180px",
-        width: "500px",
-      };
-    }
-
     toastId.current = toast(toastMsg, {
-      position: char == "A" ? "bottom-left" : "bottom-right",
+      position: isMobile()
+        ? "bottom-center"
+        : char == "A"
+        ? "bottom-left"
+        : "bottom-right",
       autoClose: 5000,
       hideProgressBar: false,
       progressStyle: {
@@ -62,24 +86,23 @@ const ImageButton = ({ alt, className, src, toastId }: ImageButtonProps) => {
       },
       closeOnClick: true,
       pauseOnHover: false,
-      draggable: true,
+      draggable: false,
       progress: undefined,
       pauseOnFocusLoss: true,
       theme: "dark",
-      style: customStyle,
     });
     // }
   };
 
   return (
-    <div className={className}>
+    <div>
       <button
         onClick={notify}
         style={{
           cursor: "pointer",
         }}
       >
-        <img alt={alt} src={src} />
+        <img alt={alt} src={src} className={className} />
       </button>
     </div>
   );

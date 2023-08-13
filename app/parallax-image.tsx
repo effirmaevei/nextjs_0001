@@ -29,11 +29,7 @@ export default function ParallaxImage() {
                 <img
                   src="enviro.webp"
                   data-atropos-offset="2"
-                  style={{
-                    width: "90vw",
-                    height: "auto",
-                    objectFit: "none",
-                  }}
+                  className="central-image"
                   alt="environment"
                 />
               </div>

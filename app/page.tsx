@@ -9,7 +9,6 @@ import "../styles/trinkets.css";
 import ImageButton from "./image-button";
 import React from "react";
 import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
 export default function Home() {
   const audioRef = useRef<HTMLAudioElement>(null);
@@ -78,7 +77,7 @@ export default function Home() {
       </div>
 
       {/* Unless containerId is used, all calls to toast() will use as parent this container. */}
-      <ToastContainer limit={4} />
+      <ToastContainer limit={2} newestOnTop />
 
       <ImageButton {...zeldaButtonProps} />
       <ImageButton {...dragonButtonProps} />

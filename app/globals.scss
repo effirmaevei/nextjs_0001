@@ -6,6 +6,7 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --toastify-toast-width: 200px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -15,6 +16,8 @@
     --background-end-rgb: 0, 0, 0;
   }
 }
+
+
 
 html {
   height: 100%;
@@ -26,7 +29,7 @@ body {
   /* background: 255, 255, 255; */
 
   background-image: url("../public/enviro.webp");
-  background-size: cover;
+  background-size: contain;
   /* background: linear-gradient(
       to bottom,
       transparent,
@@ -55,4 +58,27 @@ body::after {
   background-size: cover;
   /* opacity: 0.8; */
   z-index: -1;
+}
+
+.central-image{
+  width: 90vw;
+  height: auto;
+  object-fit: contain;
+}
+
+@media (min-width: 800px) {
+  :root {
+    --toastify-toast-width: 20vw;
+  }
+
+  body {
+    background-size: cover;
+    background-position: center center;
+  }
+
+  .central-image{
+    width: auto;
+    height: 100%;
+    object-fit: none;
+  }
 }

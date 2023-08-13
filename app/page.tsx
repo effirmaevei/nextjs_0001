@@ -6,6 +6,7 @@ import Head from "next/head";
 import ParallaxImage from "./parallax-image";
 import "../styles/atro.css";
 import "../styles/trinkets.css";
+import ImageButton from "./image-button";
 
 export default function Home() {
   const audioRef = useRef<HTMLAudioElement>(null);
@@ -37,6 +38,18 @@ export default function Home() {
     }
   };
 
+  const zeldaButtonProps = {
+    alt: "Zelda shield",
+    className: "trinketZelda",
+    src: "zelda.png",
+  };
+
+  const dragonButtonProps = {
+    alt: "Dragon shield",
+    className: "trinketDragon",
+    src: "dragon.png",
+  };
+
   return (
     <main className="flex">
       <Head>
@@ -57,8 +70,8 @@ export default function Home() {
         <ParallaxImage />
       </div>
 
-      <img alt="Zelda" className="trinketZelda" src="zelda.png" />
-      <img alt="Dragon" className="trinketDragon" src="dragon.png" />
+      <ImageButton {...zeldaButtonProps} />
+      <ImageButton {...dragonButtonProps} />
 
       <audio ref={audioRef} src="bgm.mp3" loop />
     </main>

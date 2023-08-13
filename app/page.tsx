@@ -16,22 +16,7 @@ export default function Home() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
   const [toastContainer, setToastContainer] = useState(null);
-  const toastRef = useRef(null);
-
-  const notify = () => {
-    if (!toast.isActive(toastRef.current)) {
-      toastRef.current = toast("🦄 Wow so easy!", {
-        position: "bottom-left",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-      });
-    }
-  };
+  const toastId = useRef(null);
 
   useEffect(() => {
     audioRef.current?.play().then(
@@ -62,14 +47,14 @@ export default function Home() {
     alt: "Zelda shield",
     className: "trinketZelda",
     src: "zelda.png",
-    callback: notify,
+    toastId: toastId,
   };
 
   const dragonButtonProps = {
     alt: "Dragon shield",
     className: "trinketDragon",
     src: "dragon.png",
-    callback: notify,
+    toastId: toastId,
   };
 
   return (
@@ -80,7 +65,6 @@ export default function Home() {
           rel="stylesheet"
         ></link>
       </Head>
-      <ToastContainer ref={toastRef} />
 
       <button
         className="z-10 fixed top-4 left-4 p-2 bg-black rounded-full text-white"
@@ -92,6 +76,9 @@ export default function Home() {
       <div className="mainContainer">
         <ParallaxImage />
       </div>
+
+      {/* Unless containerId is used, all calls to toast() will use as parent this container. */}
+      <ToastContainer limit={4} />
 
       <ImageButton {...zeldaButtonProps} />
       <ImageButton {...dragonButtonProps} />

@@ -9,7 +9,7 @@ export default function ParallaxImage() {
   useEffect(() => {
     const atropos = Atropos({
       el: ".my-atropos",
-      activeOffset: 10,
+      activeOffset: 20,
       shadow: false,
       rotate: true,
       highlight: false,
@@ -21,9 +21,6 @@ export default function ParallaxImage() {
 
   return (
     <>
-      <Head>
-        <link rel="stylesheet" href="styles.css" />
-      </Head>
       <div className="atropos my-atropos">
         <div className="atropos-scale">
           <div className="atropos-rotate">

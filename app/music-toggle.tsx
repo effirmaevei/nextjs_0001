@@ -8,12 +8,11 @@ interface MusicToggleProps {
 }
 
 const MusicToggle: React.FC<MusicToggleProps> = ({ isMuted, onClick }) => {
+  console.log(isMuted);
+  console.log(onClick);
   return (
-    <button
-      className="z-10 fixed top-4 left-4 p-2 bg-black rounded-full text-white"
-      onClick={onClick}
-    >
-      <FontAwesomeIcon icon={isMuted ? faVolumeMute : faVolumeUp} size="lg" />
+    <button className="p-2 bg-neutral-900 mx-1" onClick={onClick}>
+      <FontAwesomeIcon icon={isMuted ? faVolumeMute : faVolumeUp} />
     </button>
   );
 };

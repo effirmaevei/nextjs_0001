@@ -9,12 +9,12 @@ import "../styles/trinkets.css";
 import ImageButton from "./image-button";
 import React from "react";
 import { ToastContainer, toast } from "react-toastify";
+import MusicToggle from "./music-toggle";
 
 export default function Home() {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
-  const [toastContainer, setToastContainer] = useState(null);
   const toastId = useRef(null);
 
   useEffect(() => {
@@ -65,12 +65,7 @@ export default function Home() {
         ></link>
       </Head>
 
-      <button
-        className="z-10 fixed top-4 left-4 p-2 bg-black rounded-full text-white"
-        onClick={handleMuteClick}
-      >
-        <FontAwesomeIcon icon={isMuted ? faVolumeMute : faVolumeUp} size="lg" />
-      </button>
+      <MusicToggle isMuted={isMuted} onClick={handleMuteClick} />
 
       <div className="mainContainer">
         <ParallaxImage />

@@ -17,12 +17,12 @@ const Toolbar = ({ className } = { className: "" }) => {
 
   return (
     <div className={className}>
+      <MusicToggle isMuted={isMuted} onClick={handleMuteClick} />
       <FontAwesomeIcon
         className={"p-3 bg-neutral-900 mx-1"}
         icon={faFeatherPointed}
       />
       <FontAwesomeIcon className={"p-3 bg-neutral-900 mx-1"} icon={faGithub} />
-      <MusicToggle isMuted={isMuted} onClick={handleMuteClick} />
     </div>
   );
 };
